@@ -55,7 +55,7 @@ const ffmpegArgs = fps => [
   'image2pipe',
   '-preset',
   'slower',
-  'tune',
+  '-tune',
   'animation',
   '-r',
   `${+fps}`,
