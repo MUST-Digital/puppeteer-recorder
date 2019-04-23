@@ -5,6 +5,8 @@ Record frame-by-frame animations using puppeteer. Based on electron-recorder.
 ```javascript
 const { record } = require('@yoannarres/puppeteer-recorder');
 
+// In this example an animation is displayed at http://0.0.0.0:4200
+// The node server is then launched to record the animation to video:
 const capture = async () => {
  browser = await puppeteer.launch();
  page = await browser.newPage();

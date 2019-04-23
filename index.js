@@ -47,6 +47,11 @@ module.exports.record = async function (options) {
   ffmpeg.stdin.end();
 
   await closed;
+  try {
+    await browser.close();
+  } catch (error) {
+    console.error('ERROR', error)
+  }
 };
 
 const ffmpegArgs = fps => [
@@ -58,7 +63,7 @@ const ffmpegArgs = fps => [
   '-i',
   '-',
   '-c:v',
-  'libx264',
+  'libx264', // h264 codec
   '-auto-alt-ref',
   '0',
   '-pix_fmt',
