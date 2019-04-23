@@ -3,15 +3,25 @@ Record frame-by-frame animations using puppeteer. Based on electron-recorder.
 
 # Usage
 ```javascript
-const { record } = require('puppeteer-recorder');
+const { record } = require('@yoannarres/puppeteer-recorder');
 
-await record({
-  browser: null, // Optional: a puppeteer Browser instance,
-  page: null, // Optional: a puppeteer Page instance,
-  output: 'output.webm',
-  fps: 60,
-  frames: 60 * 5, // 5 seconds at 60 fps
-  prepare: function (browser, page) { /* executed before first capture */ },
-  render: function (browser, page, frame) { /* executed before each capture */ }
-});
+const capture = async () => {
+ browser = await puppeteer.launch();
+ page = await browser.newPage();
+ await page.goto('http://0.0.0.0:4200'); // The page to be captured
+ const framerate = 10;
+ const durationInSeconds = 3; // Duration of the recording
+  await record({
+     browser: browser, // Optional: a puppeteer Browser instance,
+     page: page, // Optional: a puppeteer Page instance,
+     output: 'output.avi',
+     fps: framerate,
+     logEachFrame: true, // Optional, FFMPEG logging info if true
+     frames: framerate * durationInSeconds, // 3 seconds at 10 fps
+     prepare: function (browser, page) { /* executed before first capture */ },
+     render: function (browser, page, frame) { /* executed before each capture */ }
+   });
+};
+
+capture();
 ```
