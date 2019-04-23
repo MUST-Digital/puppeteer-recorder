@@ -1,7 +1,7 @@
 const { spawn } = require('child_process');
 const puppeteer = require('puppeteer');
 
-module.exports.record = async function(options) {
+module.exports.record = async function (options) {
   const browser = options.browser || (await puppeteer.launch());
   const page = options.page || (await browser.newPage());
 
@@ -53,10 +53,6 @@ const ffmpegArgs = fps => [
   '-y',
   '-f',
   'image2pipe',
-  '-preset',
-  'slower',
-  '-tune',
-  'animation',
   '-r',
   `${+fps}`,
   '-i',
@@ -68,7 +64,11 @@ const ffmpegArgs = fps => [
   '-pix_fmt',
   'yuva420p',
   '-metadata:s:v:0',
-  'alpha_mode="1"'
+  'alpha_mode="1"',
+  '-tune',
+  'stillimage',
+  '-movflags',
+  '+faststart'
 ];
 
 const write = (stream, buffer) =>
