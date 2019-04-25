@@ -20,6 +20,7 @@ const capture = async () => {
     page: page, // Optional: a puppeteer Page instance,
     output: 'output.avi',
     fps: framerate,
+    selectedElement: '#myUniqueId', // Optional, should be unique; limits the render to specified DOM element
     logEachFrame: true, // Optional, FFMPEG logging info if true
     frames: framerate * durationInSeconds, // 3 seconds at 10 fps
     prepare: function(browser, page) {

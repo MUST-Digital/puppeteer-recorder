@@ -40,8 +40,17 @@ export const record = async function(options) {
       );
 
     await options.render(browser, page, i);
+    // Take a screenshot of the selected element if option is present
+    let screenshot = await page.screenshot({ omitBackground: true });
+    if (options.selectedElement && options.selectedElement !== '') {
+      const selectedElement = await page.$(options.selectedElement);
 
-    const screenshot = await page.screenshot({ omitBackground: true });
+      if (selectedElement !== null) {
+        screenshot = await selectedElement.screenshot({
+          omitBackground: true
+        });
+      }
+    }
 
     await write(ffmpeg.stdin, screenshot);
   }
