@@ -1,10 +1,10 @@
 {
   "name": "@yoannarres/puppeteer-recorder",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Record animations using puppeteer. Based on electron-recorder. Custom updates for h264 output",
   "main": "index.js",
   "peerDependencies": {
-    "puppeteer": ">= 0.10.0"
+    "puppeteer": ">= 0.9.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
