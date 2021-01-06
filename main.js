@@ -77,8 +77,8 @@ const ffmpegArgs = fps => [
   'libx264', // h264 codec
   '-auto-alt-ref',
   '0',
-  '-s:v',
-  '1280x720',
+  // '-s:v',
+  // '1280x720',
   '-crf',
   '20',
   '-pix_fmt',
