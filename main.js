@@ -16,6 +16,9 @@ export const record = async function(options) {
 
   const args = ffmpegArgs(fps);
 
+  console.log(args)
+
+
   if ('format' in options) args.push('-f', options.format);
   else if (!outFile) args.push('-f', 'matroska');
 
@@ -90,7 +93,6 @@ const ffmpegArgs = fps => [
   '-movflags',
   '+faststart'
 ];
-console.log(ffmpegArgs)
 
 const write = (stream, buffer) =>
   new Promise((resolve, reject) => {
