@@ -90,6 +90,7 @@ const ffmpegArgs = fps => [
   '-movflags',
   '+faststart'
 ];
+console.log(ffmpegArgs)
 
 const write = (stream, buffer) =>
   new Promise((resolve, reject) => {
