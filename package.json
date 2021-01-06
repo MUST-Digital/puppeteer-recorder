@@ -1,6 +1,6 @@
 {
-  "name": "@yoannarres/puppeteer-recorder",
-  "version": "0.0.8",
+  "name": "@MUST-Digital/puppeteer-recorder",
+  "version": "0.0.9",
   "description": "Record animations using puppeteer. Based on electron-recorder. Custom updates for h264 output",
   "main": "index.js",
   "peerDependencies": {
