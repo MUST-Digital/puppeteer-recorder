@@ -19,7 +19,10 @@ export const record = async function(options) {
   const size = options.size || '640x480';
   args.push('-s:v', options.size)
 
-  console.log(args)
+  const element = '#banner'
+  const elem = await page.$(element);
+  const boundingBox = await elem.boundingBox();
+  console.log('boundingBox', boundingBox)
 
 
   if ('format' in options) args.push('-f', options.format);
