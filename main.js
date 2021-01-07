@@ -16,21 +16,11 @@ export const record = async function(options) {
 
   const args = ffmpegArgs(fps);
 
-  const size = options.size || '640x480';
-  args.push('-s:v', options.size)
-
-  const element = '#banner'
-  const elem = await page.$(element);
-  const boundingBox = await elem.boundingBox();
-  console.log('boundingBox', boundingBox)
-
+  // const dimensions = options.dimensions || '640x480';
+  args.push('-s:v', options.dimensions || '640x480')
 
   if ('format' in options) args.push('-f', options.format);
   else if (!outFile) args.push('-f', 'matroska');
-
-  // // Add size to options
-  // if ('size' in options) args.push('-s:v', options.size);
-
 
   args.push(outFile || '-');
 
